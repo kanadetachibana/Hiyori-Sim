@@ -1,6 +1,8 @@
 # Hiyori-chan Simulator
 [__Hiyori-chan Simulator__](https://hiyori.club) (ヒヨリちゃんシミュレーター), or Hiyori-Sim, is an attempt to recreate the home page (or My Page) of the original _Princess Connect!_ game released by CyberAgent and Cygames in 2015 and subsequently shut down in 2016. Now you too can finally hear Hiyori call you Senpai once again.
 
+It should be noted that if you have only just started the _Princess Connect! Re:Dive_ anime or game, Hiyori-Sim's interface contains what may constitute spoilers.
+
 ## Information
 Hiyori-chan Simulator currently provides the following functionality:
 * Ability to select all released partners

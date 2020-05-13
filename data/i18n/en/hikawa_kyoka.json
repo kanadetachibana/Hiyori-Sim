@@ -1,0 +1,59 @@
+{
+	"hikawa_kyoka_normal_start": {
+		"mypage": [
+			"You really seem kinda suspicious to me...",
+			"Don't just talk to me.",
+			"I need to pull myself together...!",
+			"D-Don't get carried away!",
+			"Unforgivable! Don't treat me like a kid!",
+			"Are you an idiot? Or a pervert?",
+			"I mustn't talk to strangers.",
+			"I see... That's what happened...",
+			"Oh well, I'll play with you.",
+			"We're playing tag. Hurry up and hide already."
+		]
+	},
+	"hikawa_kyoka_rare_start": {
+		"mypage": [
+			"Phew... No, it's nothing...",
+			"Talking to you about it isn't going to solve anything...",
+			"Carrots... Green Peppers... Ugh~...",
+			"Is there anything you don't like to eat?",
+			"I need to do my best... so that I'll grow up big and strong...!",
+			"There's high bar on the fitness test... sigh...",
+			"I'm not good at doing the back hip circle...",
+			"Why are you such a busybody?",
+			"Do you want me to call the cops...?",
+			"You... perv!"
+		]
+	},
+	"hikawa_kyoka_srare_gacha001": {
+		"mypage": [
+			"I'm used to the monsters already.",
+			"Did you just... save me...?",
+			"I don't think... I can move.",
+			"That was kinda cool...",
+			"It's nothing... Forget what I said!",
+			"If you're looking for someone to play with, try somebody else.",
+			"I don't wanna count on a bad person like you.",
+			"So you're actually a kind person.",
+			"I will never forget what you did for me today...",
+			"Huh...? Huh... What should I do...?!"
+		]
+	},
+	"hikawa_kyoka_ssrare_gacha005": {
+		"mypage": [
+			"They don't have legs, and they wriggle around... That's so scary!",
+			"N-No! I just can't deal with them!",
+			"Ugh... I got it! They're scary... but I'll give it a try!",
+			"You did that for me...? N-Never mind that!",
+			"You meanie! I hate you! I'm mad...!",
+			"If we don't give it our all, it doesn't count as practice!",
+			"No problem. I'll still win.",
+			"All the Suppa Chupps... and the finest cupcakes... hehe.",
+			"That's the look of a pervert. You're dangerous! I'll use my buzzer...!",
+			"Y-You want me to eat the green peppers? What are you, the devil...?"
+		]
+	},
+	"translator": "Inari (kanadetachibana)"
+}

@@ -1,0 +1,59 @@
+{
+	"shijo_rei_normal_start": {
+		"mypage": [
+			"We'll head out as soon as we're ready.",
+			"Let's give Hiyori and Yui a surprise.",
+			"Want me to teach you fencing?",
+			"It's going to be a problem if you don't get stronger.",
+			"Looks like you're holding your own pretty well.",
+			"My assignment? I've already finished it, of course.",
+			"Sheesh, you're such a thickhead.",
+			"I suppose I should teach you proper manners too.",
+			"Why don't you give fencing a try?",
+			"Êtes-vous prêts? Ready?"
+		]
+	},
+	"shijo_rei_rare_start": {
+		"mypage": [
+			"I'll reel the Master in next time!",
+			"The Master exists...! I'll prove it by my fishing rod!",
+			"River fishing... This brings me back...",
+			"What will it be today? Fishing? Questing?",
+			"I love squiggly worms.",
+			"Always report, communicate, and consult!",
+			"Make sure to share any information you have, no matter how little.",
+			"How could you go to that zone with just Hiyori...?",
+			"I-I wasn't feeling lonely!",
+			"You even helped her with the bait!"
+		]
+	},
+	"shijo_rei_srare_gacha002": {
+		"mypage": [
+			"I'm not strong at all. You're just too weak.",
+			"Your positioning and reflexes have nothing to do with statuses.",
+			"If you manage to land a single hit, I'll do whatever you say.",
+			"Give it all you got, otherwise you won't even land a scratch.",
+			"If we're going to do this together, I'll need you to become stronger.",
+			"How I spend my days off...? That's an interesting thing to ask.",
+			"Meet my mount, Marengo. I hope you two will get along.",
+			"It feels like you're the wind itself when you're riding a horse.",
+			"Here, give it a try. I'll hold onto the bridle.",
+			"Horses are sensitive to their riders' emotions."
+		]
+	},
+	"shijo_rei_srare_gacha009": {
+		"mypage": [
+			"Stop staring at me so much... It's embarrassing.",
+			"The pirates have the upper hand at sea. Best to brace yourself.",
+			"Huh, you're seasick? What are we to do with you... Stay behind me, okay?",
+			"Preparation is half the battle.",
+			"Thanks. You were kinda cool just now.",
+			"I'm fine. I'm not nervous. Everything's going just fine...",
+			"You're late. I told you: report, communicate, and consult!",
+			"H-Hey now, don't get all awkward like that! You'll make me embarrassed too...",
+			"N-Never mind that! Want some shaved ice?",
+			"I like white. Marengo's a white horse, after all."
+		]
+	},
+	"translator": "Inari (kanadetachibana)"
+}

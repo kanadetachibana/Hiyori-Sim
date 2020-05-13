@@ -1,0 +1,59 @@
+{
+	"kashiwazaki_shiori_normal_start": {
+		"mypage": [
+			"I still have enough time.",
+			"I need to log out for my break soon...",
+			"Am I being a bother?",
+			"It's the first time anyone invited me to their party...",
+			"Me? A master hunter...?",
+			"I made some sandwiches for my break. Would you like some...?",
+			"Ah... ahh... The wind... ahh...",
+			"Um, I walk pretty slow...",
+			"I am feeling okay today.",
+			"I read books about Astrum a lot."
+		]
+	},
+	"kashiwazaki_shiori_rare_start": {
+		"mypage": [
+			"We can't trust strangers.",
+			"Just a little while won't be a problem...",
+			"I didn't expect to pass out just for sneezing.",
+			"My sister's always worried about me.",
+			"I need to follow my alarm...",
+			"All I do is read or study...",
+			"I read just about anything, but I like happy stories the most...",
+			"*Cough*... I'm sorry for passing out.",
+			"I head outside to buy cakes pretty often.",
+			"I'll be fine. It doesn't take me very long to get home..."
+		]
+	},
+	"kashiwazaki_shiori_srare_gacha006": {
+		"mypage": [
+			"There, there. Does that feel good?",
+			"I can't keep one in the real world... It's a dream of mine to play with a pet.",
+			"Hehe, don't lick me so much... It tickles.",
+			"We're both cats, so we hit it off right away.",
+			"Meow, meowth... meow? H-How long have you been watching?!",
+			"It's been a long time since I came shopping here...",
+			"Could this be a date perhaps...?",
+			"This is my first date ever... I'm so happy.",
+			"Um... Could you go, 'Open wide...'?",
+			"My outfit isn't weird, is it...?"
+		]
+	},
+	"kashiwazaki_shiori_ssrare_gacha014": {
+		"mypage": [
+			"I'm fine. I feel okay today.",
+			"There isn't much time left. Let's take care of this in one go!",
+			"Let's do this together! I'll back you up!",
+			"I'll keep the monsters pinned with this barrage!",
+			"I think I can keep it up until we're done with this quest!",
+			"Meow, meow meow... The kittie is so cute...",
+			"I don't climb up trees often.",
+			"It brings me down every time I think of Nyat.",
+			"It's all okay. I'll protect you.",
+			"U-Um... How do I come back down...?"
+		]
+	},
+	"translator": "Inari (kanadetachibana)"
+}

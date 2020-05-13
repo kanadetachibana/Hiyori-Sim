@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-166020628-1"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'UA-166020628-1');
+	</script>
+
+	<title>Hiyori-chan Simulator</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Hiyori-chan Princess Connect! Home Screen Simulator">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/hiyori.css">
+	<link rel="icon" type="shortcut icon" href="img/favicon.png">
+	<script src="js/jquery-3.5.0.min.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>-->
+	<script src="js/vue.min.js"></script>
+	<!-- <script src="https://unpkg.com/vue-select@latest"></script>
+	<link rel="stylesheet" href="https://unpkg.com/vue-select@latest/dist/vue-select.css"> -->
+	<script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
+	<script src="js/howler.min.js"></script>
+</head>
+<body>
+	<div id="ps-paris">
+		<!-- Loading -->
+		<div class="loading_screen" v-if="loading">
+			<div class="loading">
+				<div class="loading_fio"></div>
+				<div class="loading_text"></div>
+				<div class="loading_frame"></div>
+			</div>
+		</div>
+	
+		<!-- Header -->
+		<div id="header" class="hv-header unselectable" style="display:inline-block;">
+			<div class="main-body-title"><!-- Hiyori-chan Simulator -->{{ $t("system.title") }}</div>
+		</div>
+		
+		<!-- Home Page -->
+		<div id="home" v-if="currentMenu == 1">
+			<div id="card_dialogue_bubble" class="card_dialogue_bubble unselectable" v-if="$t(selectedCharacter + '.' + selectedCard + '.mypage[' + currentDialogue + ']')" v-on:click="playCurrentDialogueVoice">
+				<div style="margin-left:10px; margin-right:10px; line-height:normal">{{ 
+			$t(selectedCharacter + '.' + selectedCard + '.mypage[' + currentDialogue + ']') }}</div>
+			</div>
+			<div id="card_area" style="display:inline-block; z-index:0; margin-top:-80px">
+				<img id="card_image_astrum" class="main_card" width="100%" v-if="!cardDisplay" :src="astrumImg" v-on:click="playRandomDialogue" v-on:load="imageLoaded" />
+				<img id="card_image_real" class="main_card" width="100%" v-else :src="realImg" v-on:click="playRandomDialogue" v-on:load="imageLoaded" />
+				<img src="img/home_card_footer.png" width="100%" style="position:relative; z-index:2; top:-19px" />
+			</div>
+			<div class="ps-list ps-mt20">
+				<div class="ps-list-h1"><!-- Hiyori-chan Simulator -->{{ $t("system.title") }}</div>
+				<div class="ps-list-main">
+					<div class="ps-list-main-body">
+						<div class="ps-mt12 ps-mb12 ps-text-center">{{ selectedCard }}<br />{{ cardNames[selectedCard] }}<br /><span v-if="_i18n.locale != 'ja'">{{ $t("partners." + selectedCard) }}<br /></span>{{ 
+			$t(selectedCharacter + '.' + selectedCard + '.mypage[' + currentDialogue + ']') }}</div>
+						<!-- <div class="ps-mt12 ps-mb12 ps-text-center">{{ selectedCard }}<br />{{ messages[currentLanguage].partners[selectedCard] }}<br />{{ currentDialogue }}</div> -->
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="btn_chara_select" class="ps-deco-btn_l ps-deco-btn-normal_l" v-on:click="buttonTap(); openMenu(2);"><!-- Partner Select -->{{ $t("system.character_select") }}</a>
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="btn_switch" class="ps-deco-btn_l ps-deco-btn-normal_l" v-on:click="buttonTap(); cardToggle();"><!-- Switch to Astrum or Real World -->{{ cardDisplay ? $t("system.switch_astrum") : $t("system.switch_real") }}</a>
+					</div>
+					<!-- <div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="btn_switch" class="ps-deco-btn_l ps-deco-btn-normal_l" v-on:click="playRandomDialogue">Play Dialogue</a>
+					</div> -->
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="btn_switch" class="ps-deco-btn_l ps-deco-btn-normal_l" v-on:click="buttonTap(); randomCardChange()"><!-- Random Partner -->{{ $t("system.character_random") }}</a>
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="btn_switch" class="ps-deco-btn_l ps-deco-btn-normal_l" v-on:click="buttonTap(); openMenu(3)"><!-- Config & Info -->{{ $t("system.config") }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Character Select -->
+		<div id="chara_select" v-if="currentMenu == 2">
+			<div class="ps-list ps-mt20">
+				<div class="ps-list-h1"><!-- Character Select -->{{ $t("system.character_select") }}</div>
+				<div class="ps-list-main">
+					<div class="ps-list-main-body">
+						<div class="ps-list-h2"><!-- Select My Page Character: -->{{  $t("system.character_select_desc") }}</div>
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<form name="select">
+								<select id="chara_dropdown" v-on:change="onCardChange($event)" v-on:click="buttonTap" v-model="selectedCard">
+									<!-- <option v-for="card in cardList" v-bind:value="card">{{ getRarity(card) + " " + cardNames[card] }}</option> -->
+									<option v-for="card in cardList" v-bind:value="card">{{ getRarity(card) + " " + $t("partners." + card) }}</option>
+								</select>
+							</form>
+						</div>
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="js-btn-startWithOldUser" class="ps-deco-btn_l ps-deco-btn-normal_l"v-on:click="buttonNo(); openMenu(1); loading = true;"><!-- Back -->{{ $t("system.back") }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Config & Info-->
+		<div id="config" v-if="currentMenu == 3">
+			<div class="ps-list ps-mt20">
+				<div class="ps-list-h1"><!-- Config -->{{ $t("system.config") }}</div>
+				<div class="ps-list-main">
+					<div class="ps-list-main-body">
+						<div class="ps-list-h2"><!-- Default My Page Character: -->{{  $t("system.config_options.default_character") }}</div>
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<input type="radio" id="default_card_hiyori" value="hiyori" v-model="settings.defaultCard" v-on:change="configChanged">
+							<label for="default_chara_hiyori"><!-- Hiyori -->{{  $t("system.config_options.hiyori") }}</label>
+							<input type="radio" id="default_card_last" value="last" v-model="settings.defaultCard" v-on:change="configChanged">
+							<label for="default_chara_last"><!-- Last Selected -->{{  $t("system.config_options.last") }}</label>
+						</div>
+						<div class="ps-list-h2"><!-- BGM: -->{{  $t("system.config_options.bgm") }}</div>
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<input type="radio" id="bgm_on" value="true" v-model="settings.playBGM" v-on:change="configChanged">
+							<label for="bgm_on"><!-- ON -->{{  $t("system.config_options.on") }}</label>
+							<input type="radio" id="bgm_off" value="false" v-model="settings.playBGM" v-on:change="configChanged">
+							<label for="bgm_off"><!-- OFF -->{{  $t("system.config_options.off") }}</label>
+						</div>
+						<div class="ps-list-h2"><!-- Voices: -->{{  $t("system.config_options.voices") }}</div>
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<input type="radio" id="voices_on" value="true" v-model="settings.playVoices" v-on:change="configChanged">
+							<label for="voices_on"><!-- ON -->{{  $t("system.config_options.on") }}</label>
+							<input type="radio" id="voices_off" value="false" v-model="settings.playVoices" v-on:change="configChanged">
+							<label for="voices_off"><!-- OFF -->{{  $t("system.config_options.off") }}</label>
+						</div>
+						<div class="ps-list-h2"><!-- Language: -->{{  $t("system.config_options.language") }}</div>
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<form name="select">
+								<select id="settings_language_dropdown" v-on:change="configChanged" v-on:click="buttonTap" v-model="settings.language">
+									<option v-for="(languageName, locale) in languages" v-bind:value="locale">{{ languageName }}</option>
+								</select>
+							</form>
+							<div class="ps-p8" v-if="_i18n.locale != 'ja'">
+								{{ $t("system.translator") }} {{ $t("system.system_translator_name") }}<br />
+								<span v-if="$t( selectedCharacter + '.translator')">{{ $t("system.card_translator") }} {{ $t( selectedCharacter + ".translator") }}
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<div class="ps-mt12 ps-mb12 ps-text-center">
+							<a href="https://github.com/kanadetachibana" target="_blank"><img src="img/GitHub-Mark-Light-32px.png" />
+						</div>
+					</div>
+					<div class="ps-display-box-ac_pc ps-pb6">
+						<a href="#" id="js-btn-startWithOldUser" class="ps-deco-btn_l ps-deco-btn-normal_l"v-on:click="buttonNo(); openMenu(1);"><!-- Back -->{{ $t("system.back") }}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div class="footer">
+			<div class="footer_fg">
+			</div>
+			<a href="#" class="btn_footer_back" v-on:click="openMenu(1)"></a>
+			<a href="#" class="btn_footer_reload" onclick="location.reload()"></a>
+			<a href="#" class="btn_footer_home" onclick="location.reload()"></a>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+</html>

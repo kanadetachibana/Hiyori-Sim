@@ -1,0 +1,35 @@
+
+# Created by https://www.gitignore.io/api/vue,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=vue,visualstudiocode
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+
+### Vue ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+### Other stuff ###
+assets
+
+# End of https://www.gitignore.io/api/vue,visualstudiocode

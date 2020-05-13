@@ -118,15 +118,27 @@ var app = new Vue({
 				value.stop();
 			});
 			var random = this.currentDialogue;
+			var astrumLineCount = 5;
+			var realLineCount = 5;
+			switch(this.selectedCard) {
+				case "sakura_nozomi_ssrare_gacha019":
+					astrumLineCount = 3; realLineCount = 5;
+					break;
+				case "hasekura_io_rare_gacha019":
+				case "hojo_ayane_srare_gacha019":
+				case "morichika_rin_srare_gacha018":
+				case "sasaki_saren_srare_raidmedal007":
+				case "tamaizumi_misaki_rare_gacha018":
+					case "akane_mimi_ssrare_gacha019":
+					astrumLineCount = 3; realLineCount = 3;
+					break;
+				default:
+					astrumLineCount = 5; realLineCount = 5;
+			}
+
 			while (random == this.currentDialogue) {
-				if (this.selectedCard == "sakurai_nozomi_ssrare_gacha019") {
-					if (!this.cardDisplay) { random = Math.floor(Math.random() * Math.floor(3)); }
-					else { random = Math.floor(Math.random() * Math.floor(5)) + 3; }
-				}
-				else {
-					random = Math.floor(Math.random() * Math.floor(this.dialogueSounds.length / 2));
-					random = !this.cardDisplay ? random : random + this.dialogueSounds.length / 2;
-				}
+				if (!this.cardDisplay) { random = Math.floor(Math.random() * Math.floor(astrumLineCount)); }
+					else { random = Math.floor(Math.random() * Math.floor(realLineCount)) + astrumLineCount; }
 			}
 			if (this.settings.playVoices) {
 				this.dialogueSounds[random].play();

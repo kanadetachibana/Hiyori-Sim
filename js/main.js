@@ -70,8 +70,8 @@ var app = new Vue({
 		selectedCharacter: "harusaki_hiyori",
 		selectedCard: "harusaki_hiyori_rare_start",
 		cardId: "pop-beast-knuckle-harusaki_hiyori_rare_start",
-		astrumImg: imgRoot + "harusaki_hiyori/pop-beast-knuckle-harusaki_hiyori_rare_start/4e9977868cfe1b51087a2d39995e7535-mypage-10_20.jpg",
-		realImg: imgRoot + "harusaki_hiyori/pop-beast-knuckle-harusaki_hiyori_rare_start/add72c745c6bb27572fc1449ebff81e4-mypage-10_20.jpg"
+		astrumImg: "",
+		realImg: ""
 	},
 	methods: {
 		buttonTap: function () {

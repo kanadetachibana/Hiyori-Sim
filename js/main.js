@@ -121,7 +121,7 @@ var app = new Vue({
 			var astrumLineCount = 5;
 			var realLineCount = 5;
 			switch(this.selectedCard) {
-				case "sakura_nozomi_ssrare_gacha019":
+				case "sakurai_nozomi_ssrare_gacha019":
 					astrumLineCount = 3; realLineCount = 5;
 					break;
 				case "hasekura_io_rare_gacha019":
@@ -138,7 +138,7 @@ var app = new Vue({
 
 			while (random == this.currentDialogue) {
 				if (!this.cardDisplay) { random = Math.floor(Math.random() * Math.floor(astrumLineCount)); }
-					else { random = Math.floor(Math.random() * Math.floor(realLineCount)) + astrumLineCount; }
+				else { random = Math.floor(Math.random() * Math.floor(realLineCount)) + astrumLineCount; }
 			}
 			if (this.settings.playVoices) {
 				this.dialogueSounds[random].play();

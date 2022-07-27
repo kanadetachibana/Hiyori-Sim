@@ -114,9 +114,6 @@ var app = new Vue({
 			app.cardDisplay = !app.cardDisplay;
 		},
 		playRandomDialogue: function() {
-			$.each(this.dialogueSounds, function(index, value) {
-				value.stop();
-			});
 			var random = this.currentDialogue;
 			var astrumLineCount = 5;
 			var realLineCount = 5;
@@ -140,11 +137,18 @@ var app = new Vue({
 				if (!this.cardDisplay) { random = Math.floor(Math.random() * Math.floor(astrumLineCount)); }
 				else { random = Math.floor(Math.random() * Math.floor(realLineCount)) + astrumLineCount; }
 			}
-			if (this.settings.playVoices) {
-				this.dialogueSounds[random].play();
+			this.playDialogue(random);
+		},
+		playDialogue: function(dialogueIndex) {
+			$.each(this.dialogueSounds, function(index, value) {
+				value.stop();
+			});
+			if (dialogueIndex < this.dialogueSounds.length) {
+				if (this.settings.playVoices) {
+					this.dialogueSounds[dialogueIndex].play();
+				}
+				this.currentDialogue = dialogueIndex;
 			}
-			//app.currentDialogue = app.mypageDialogue[random]["text"];
-			this.currentDialogue = random;
 		},
 		playCurrentDialogueVoice: function() {
 			this.dialogueSounds[this.currentDialogue].stop();
